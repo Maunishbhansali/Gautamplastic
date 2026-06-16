@@ -25,6 +25,15 @@ export interface ProductCategory {
   keywords: string[];
 }
 
+export interface CategoryHero {
+  eyebrow: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+  image: string;
+  imageAlt: string;
+}
+
 export interface SiteSectionContent {
   eyebrow: string;
   title: string;
@@ -145,6 +154,89 @@ export const productCategories: ProductCategory[] = [
   { slug: "caps-and-closures", name: "Caps & Closures", summary: "Reliable closure systems for bottles, jars and containers across packaging lines.", keywords: ["Caps Supplier Ahmedabad", "Closure Supplier Gujarat"] },
 ];
 
+export const productCategoryHeroContent: Record<string, CategoryHero> = {
+  "pet-bottles": {
+    eyebrow: "Clear PET bottle solutions",
+    title: "PET bottles built for beverages, chemicals and personal care liquids",
+    description: "Lightweight PET bottle variants in clear, amber and sport-cap styles for industrial and commercial packaging in Ahmedabad.",
+    ctaLabel: "Request PET bottle quote",
+    image: "/images/product-placeholder.svg",
+    imageAlt: "PET bottles from Gautam Plastic",
+  },
+  "hdpe-bottles": {
+    eyebrow: "Durable HDPE packaging",
+    title: "HDPE bottles engineered for chemicals, oils and industrial liquids",
+    description: "Robust, chemical-safe HDPE bottles suitable for packaging, storage and transportation across Gujarat.",
+    ctaLabel: "Request HDPE bottle quote",
+    image: "/images/product-placeholder.svg",
+    imageAlt: "HDPE bottles for industrial liquids",
+  },
+  "pet-jars": {
+    eyebrow: "Premium PET jars",
+    title: "PET jars for food, cosmetics and specialty packaging",
+    description: "Transparent and stackable PET jars ideal for creams, powders and consumer products in Ahmedabad.",
+    ctaLabel: "Request PET jar quote",
+    image: "/images/product-placeholder.svg",
+    imageAlt: "PET jars for packaging",
+  },
+  "hdpe-jerry-cans": {
+    eyebrow: "High-capacity jerry cans",
+    title: "HDPE jerry cans for safe transport and storage of liquids",
+    description: "Reliable jerry cans in 5L, 10L and 20L sizes built for chemical, lubricant and agricultural packaging.",
+    ctaLabel: "Request jerry can quote",
+    image: "/images/product-placeholder.svg",
+    imageAlt: "HDPE jerry cans",
+  },
+  "hdpe-drums": {
+    eyebrow: "Bulk HDPE drums",
+    title: "HDPE drums for industrial storage and transportation",
+    description: "Sturdy 50L and 100L drums for chemicals, water treatment and bulk packaging needs across Gujarat.",
+    ctaLabel: "Request drum quote",
+    image: "/images/product-placeholder.svg",
+    imageAlt: "HDPE storage drums",
+  },
+  "plastic-containers": {
+    eyebrow: "Versatile plastic containers",
+    title: "Plastic containers for storage, retail and logistics",
+    description: "Durable containers for food-grade storage, packaging and inventory transport across industrial applications.",
+    ctaLabel: "Request container quote",
+    image: "/images/product-placeholder.svg",
+    imageAlt: "Plastic containers",
+  },
+  "reagent-bottles": {
+    eyebrow: "Laboratory reagent bottles",
+    title: "Reagent bottles designed for chemical handling and laboratory use",
+    description: "Quality reagent bottles for research, pharmaceutical and analytical applications in Ahmedabad.",
+    ctaLabel: "Request reagent bottle quote",
+    image: "/images/product-placeholder.svg",
+    imageAlt: "Reagent bottles for laboratories",
+  },
+  "plastic-pumps": {
+    eyebrow: "Dispensing pump systems",
+    title: "Plastic pumps for cosmetics, cleaners and industrial sprayers",
+    description: "Trigger sprays, lotion pumps and mist sprayers for reliable dispensing in packaging applications.",
+    ctaLabel: "Request pump quote",
+    image: "/images/product-placeholder.svg",
+    imageAlt: "Plastic pump dispensers",
+  },
+  "measuring-units": {
+    eyebrow: "Accurate measuring units",
+    title: "Measuring cups and graduated cylinders for precision dosing",
+    description: "Plastic measuring tools for labs, manufacturing and product formulation in Ahmedabad.",
+    ctaLabel: "Request measuring unit quote",
+    image: "/images/product-placeholder.svg",
+    imageAlt: "Plastic measuring units",
+  },
+  "caps-and-closures": {
+    eyebrow: "Secure caps and closures",
+    title: "Caps and closures for bottles, jars and containers",
+    description: "Wide range of screw caps, flip tops and child-resistant closures that protect packaged liquids.",
+    ctaLabel: "Request closure quote",
+    image: "/images/product-placeholder.svg",
+    imageAlt: "Bottle caps and closures",
+  },
+};
+
 export const industriesServed = [
   "Food & beverage packaging",
   "Pharmaceutical and laboratory packaging",
@@ -196,6 +288,17 @@ export const schemaConfig = {
 
 export function getProductCategoryBySlug(slug: string) {
   return productCategories.find((category) => category.slug === slug);
+}
+
+export function getCategoryHeroBySlug(slug: string) {
+  return productCategoryHeroContent[slug] ?? {
+    eyebrow: "Product category",
+    title: "Industrial packaging products for Ahmedabad and Gujarat",
+    description: "Premium product solutions from Gautam Plastic, built for buyers seeking reliable packaging supply.",
+    ctaLabel: "Request quote",
+    image: "/images/product-placeholder.svg",
+    imageAlt: "Packaging product category from Gautam Plastic",
+  };
 }
 
 export function getPageMeta(page: "home" | "about" | "contact" | "products", slug?: string) {

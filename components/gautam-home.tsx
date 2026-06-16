@@ -60,30 +60,6 @@ function SectionHeading({ eyebrow, title, description }: { eyebrow: string; titl
 export default function GautamHome() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
-        <nav className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-          <a href="#top" className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#003366] text-base font-semibold text-white shadow-sm">GP</span>
-            <span>
-              <span className="block text-lg font-semibold text-[#003366]">Gautam Plastic</span>
-              <span className="block text-xs uppercase tracking-[0.25em] text-slate-500">Plastic Packaging Supplier</span>
-            </span>
-          </a>
-
-          <div className="hidden items-center gap-8 lg:flex">
-            <a className="text-sm font-medium text-slate-700 hover:text-[#003366]" href="#products">Products</a>
-            <a className="text-sm font-medium text-slate-700 hover:text-[#003366]" href="#advantages">Why Choose Us</a>
-            <a className="text-sm font-medium text-slate-700 hover:text-[#003366]" href="#industries">Industries</a>
-            <a className="text-sm font-medium text-slate-700 hover:text-[#003366]" href="#contact">Contact</a>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Button variant="outline" className="hidden sm:inline-flex border-[#003366] text-[#003366] hover:bg-[#003366] hover:text-white">Request Quote</Button>
-            <Button className="bg-[#FF7A00] text-white hover:bg-[#e56e00]">WhatsApp Us</Button>
-          </div>
-        </nav>
-      </header>
-
       <section id="top" className="mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:pb-20 lg:pt-16">
         <div className="space-y-8">
           <SectionLabel>{contentSnapshot.siteContent.home.eyebrow}</SectionLabel>

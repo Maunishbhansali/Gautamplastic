@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { contentSnapshot } from "@/lib/cms";
+import { productCatalog } from "@/lib/products";
 
 export const metadata = {
   title: "Plastic Packaging Categories | Gautam Plastic",
@@ -50,6 +51,40 @@ export default function ProductsPage() {
               <p><strong>WhatsApp:</strong> {contentSnapshot.business.whatsapp}</p>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#FF7A00]">Full catalog</p>
+            <h2 className="mt-3 text-3xl font-semibold text-[#003366]">All products in one place</h2>
+          </div>
+          <Button asChild variant="outline" className="border-[#003366] text-[#003366] hover:bg-[#003366] hover:text-white">
+            <Link href="/contact">Request custom quote</Link>
+          </Button>
+        </div>
+
+        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {productCatalog.map((product) => (
+            <Card key={product.slug} className="overflow-hidden border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-[#003366]/30 hover:shadow-md">
+              <div className="h-52 w-full bg-slate-100" />
+              <CardHeader>
+                <CardTitle className="text-xl text-[#003366]">{product.name}</CardTitle>
+                <CardDescription>{product.shortDescription}</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3 p-6">
+                <p className="text-sm text-slate-600"><strong>Material:</strong> {product.material}</p>
+                <p className="text-sm text-slate-600"><strong>Capacity:</strong> {product.capacities.length ? product.capacities.join(", ") : "Multiple"}</p>
+                <div className="flex flex-wrap items-center gap-3">
+                  <Button asChild variant="outline" className="border-[#FF7A00] text-[#FF7A00] hover:bg-[#FF7A00] hover:text-white">
+                    <Link href={`/products/${product.category}/${product.slug}`}>View product</Link>
+                  </Button>
+                  <span className="rounded-full bg-[#003366]/10 px-3 py-1 text-xs font-semibold text-[#003366]">{product.category}</span>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
     </main>

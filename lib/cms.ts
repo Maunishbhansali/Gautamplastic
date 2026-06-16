@@ -5,6 +5,7 @@ import {
   seoKeywords,
   siteContent,
 } from "@/lib/business";
+import { productCatalog } from "@/lib/products";
 
 export type ContentSource = "local" | "sanity";
 
@@ -14,6 +15,7 @@ export interface SiteContentSnapshot {
   productCategories: typeof productCategories;
   industriesServed: typeof industriesServed;
   seoKeywords: typeof seoKeywords;
+  productCatalog: typeof productCatalog;
 }
 
 const localContentSnapshot: SiteContentSnapshot = {
@@ -22,6 +24,7 @@ const localContentSnapshot: SiteContentSnapshot = {
   productCategories,
   industriesServed,
   seoKeywords,
+  productCatalog,
 };
 
 export function getContentSource(): ContentSource {

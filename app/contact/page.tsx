@@ -3,6 +3,7 @@ import { Mail, MapPin, PhoneCall, MessageCircleMore } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { contentSnapshot } from "@/lib/cms";
+import { ContactForm } from "@/app/contact/ContactForm";
 
 export const metadata = {
   title: "Contact Gautam Plastic | PET and HDPE Packaging Supplier Ahmedabad",
@@ -31,18 +32,13 @@ export default function ContactPage() {
           </CardContent>
         </Card>
 
-        <Card className="border-slate-200 bg-slate-50 shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl text-[#003366]">{contentSnapshot.siteContent.contact.ctaLabel}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4 text-slate-700">
+        <div className="space-y-6 rounded-[2rem] border border-slate-200 bg-slate-50 p-8 shadow-sm">
+          <div className="space-y-4 text-slate-700">
+            <h2 className="text-2xl font-semibold text-[#003366]">{contentSnapshot.siteContent.contact.ctaLabel}</h2>
             <p>{contentSnapshot.siteContent.contact.body}</p>
-            <div className="flex flex-wrap gap-3">
-              <Button className="bg-[#003366] text-white hover:bg-[#00254f]">Request Quote</Button>
-              <Button variant="outline" className="border-[#FF7A00] text-[#FF7A00] hover:bg-[#FF7A00] hover:text-white">WhatsApp Us</Button>
-            </div>
-          </CardContent>
-        </Card>
+          </div>
+          <ContactForm />
+        </div>
       </section>
     </main>
   );
