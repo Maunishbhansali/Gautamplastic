@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title">
+  <title>HDPE drums</title>
+  <rect width="800" height="520" rx="40" fill="#FFF8E8" />
+  <g fill="#003366">
+    <ellipse cx="400" cy="220" rx="160" ry="70" />
+    <rect x="240" y="220" width="320" height="170" rx="80" />
+    <ellipse cx="400" cy="390" rx="160" ry="70" />
+  </g>
+  <text x="50%" y="470" text-anchor="middle" font-family="Verdana, sans-serif" font-size="46" fill="#003366">HDPE Drums</text>
+</svg>

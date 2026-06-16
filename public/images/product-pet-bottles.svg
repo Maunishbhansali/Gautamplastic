@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>Clear PET bottles</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef6ff"/>
+      <stop offset="1" stop-color="#d9e8f7"/>
+    </linearGradient>
+    <linearGradient id="bottle" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.94"/>
+      <stop offset="0.55" stop-color="#cde9ff" stop-opacity="0.74"/>
+      <stop offset="1" stop-color="#8fc6ee" stop-opacity="0.58"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <ellipse cx="600" cy="740" rx="360" ry="62" fill="#003366" opacity="0.12"/>
+  <g stroke="#003366" stroke-opacity="0.18" stroke-width="8">
+    <path d="M286 266h122M498 214h152M774 272h112"/>
+  </g>
+  <g>
+    <path d="M296 210h130v88c0 36 42 54 42 112v286c0 52-34 82-86 82H340c-52 0-86-30-86-82V410c0-58 42-76 42-112z" fill="url(#bottle)" stroke="#003366" stroke-opacity="0.34" stroke-width="10"/>
+    <rect x="314" y="132" width="94" height="88" rx="18" fill="#ff7a00"/>
+    <rect x="306" y="110" width="110" height="32" rx="12" fill="#003366"/>
+    <path d="M318 420h86M318 474h86M318 528h86" stroke="#ffffff" stroke-width="12" stroke-linecap="round" opacity="0.65"/>
+  </g>
+  <g>
+    <path d="M535 160h130v112c0 36 48 58 48 120v310c0 54-38 86-92 86h-42c-54 0-92-32-92-86V392c0-62 48-84 48-120z" fill="url(#bottle)" stroke="#003366" stroke-opacity="0.38" stroke-width="10"/>
+    <rect x="552" y="82" width="96" height="88" rx="18" fill="#ff7a00"/>
+    <rect x="544" y="60" width="112" height="32" rx="12" fill="#003366"/>
+    <path d="M562 436h76M562 494h76M562 552h76" stroke="#ffffff" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+  </g>
+  <g>
+    <path d="M774 224h130v84c0 34 42 52 42 108v280c0 52-34 82-86 82h-42c-52 0-86-30-86-82V416c0-56 42-74 42-108z" fill="url(#bottle)" stroke="#003366" stroke-opacity="0.34" stroke-width="10"/>
+    <rect x="792" y="146" width="94" height="88" rx="18" fill="#ff7a00"/>
+    <rect x="784" y="124" width="110" height="32" rx="12" fill="#003366"/>
+    <path d="M812 434h56M812 488h56M812 542h56" stroke="#ffffff" stroke-width="12" stroke-linecap="round" opacity="0.65"/>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>Plastic containers</title>
+  <rect width="1200" height="900" fill="#f3f7fb"/>
+  <ellipse cx="600" cy="748" rx="380" ry="62" fill="#003366" opacity="0.12"/>
+  <g>
+    <path d="M280 326h640l-38 346c-8 70-62 112-132 112H450c-70 0-124-42-132-112z" fill="#ffffff" stroke="#003366" stroke-opacity="0.32" stroke-width="12"/>
+    <rect x="252" y="248" width="696" height="96" rx="26" fill="#003366"/>
+    <rect x="302" y="202" width="596" height="66" rx="22" fill="#ff7a00"/>
+    <path d="M386 458h428M406 552h388M430 646h340" stroke="#c1cfdd" stroke-width="18" stroke-linecap="round"/>
+    <path d="M430 248c20-72 78-112 160-112h20c82 0 140 40 160 112" fill="none" stroke="#003366" stroke-opacity="0.26" stroke-width="18" stroke-linecap="round"/>
+  </g>
+</svg>

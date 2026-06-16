@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>Agriculture and fertilizer packaging</title>
+  <rect width="1200" height="900" fill="#eef6fb"/>
+  <ellipse cx="600" cy="752" rx="400" ry="64" fill="#003366" opacity="0.12"/>
+  <path d="M286 322c0-76 52-128 128-128h284c76 0 128 52 128 128v358c0 64-44 108-108 108H394c-64 0-108-44-108-108z" fill="#fff" stroke="#003366" stroke-opacity="0.34" stroke-width="12"/>
+  <path d="M424 194h198c46 0 80 34 80 80v48H588v-26c0-24-18-42-42-42h-48c-24 0-42 18-42 42v26H344v-48c0-46 34-80 80-80z" fill="#dce8f3" stroke="#003366" stroke-opacity="0.26" stroke-width="10"/>
+  <rect x="698" y="250" width="102" height="88" rx="18" fill="#003366"/>
+  <rect x="708" y="228" width="82" height="34" rx="14" fill="#ff7a00"/>
+  <path d="M382 470h220M382 544h220M382 618h160" stroke="#bdc9d6" stroke-width="16" stroke-linecap="round"/>
+  <path d="M872 396c66 42 102 106 102 190 0 82-40 150-112 204" fill="none" stroke="#ff7a00" stroke-width="20" stroke-linecap="round"/>
+  <path d="M890 500c-52-6-92-32-120-76 74-16 132 8 174 72" fill="#79b46a" opacity="0.9"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>Household and consumer goods packaging</title>
+  <rect width="1200" height="900" fill="#f4f8fb"/>
+  <ellipse cx="600" cy="752" rx="370" ry="62" fill="#003366" opacity="0.12"/>
+  <path d="M304 250h140v92c0 34 40 52 40 108v246c0 54-36 86-90 86h-40c-54 0-90-32-90-86V450c0-56 40-74 40-108z" fill="#fff" stroke="#003366" stroke-opacity="0.34" stroke-width="10"/>
+  <rect x="320" y="164" width="108" height="96" rx="16" fill="#003366"/>
+  <rect x="312" y="144" width="124" height="32" rx="14" fill="#ff7a00"/>
+  <path d="M322 498h104M322 566h104" stroke="#b9c8d7" stroke-width="14" stroke-linecap="round"/>
+  <path d="M594 290h214c64 0 114 50 114 114v280c0 58-40 98-98 98H578c-58 0-98-40-98-98V404c0-64 50-114 114-114z" fill="#dff2ff" stroke="#003366" stroke-opacity="0.34" stroke-width="10"/>
+  <path d="M578 234h214c60 0 106 46 106 106" fill="none" stroke="#003366" stroke-width="44" stroke-linecap="round"/>
+  <path d="M574 186h210" stroke="#ff7a00" stroke-width="42" stroke-linecap="round"/>
+  <path d="M566 492h260M566 570h260M566 648h180" stroke="#fff" stroke-width="16" stroke-linecap="round" opacity="0.78"/>
+</svg>

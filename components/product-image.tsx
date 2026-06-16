@@ -7,7 +7,7 @@ interface ProductImageProps {
 }
 
 export function ProductImage({ src, alt, className }: ProductImageProps) {
-  const imageSrc = src && src.startsWith("/") ? src : "/images/product-placeholder.svg";
+  const imageSrc = src && (src.startsWith("/") || src.startsWith("https://cdn.sanity.io/")) ? src : "/images/product-placeholder.svg";
 
   return (
     <Image

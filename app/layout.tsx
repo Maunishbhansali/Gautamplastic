@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import SiteHeader from "@/components/site-header";
 
 import { business, seoKeywords } from "@/lib/business";
+import { getContentSnapshot } from "@/lib/cms";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -43,11 +44,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const snapshot = await getContentSnapshot();
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -107,7 +109,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
-        <SiteHeader />
+        <SiteHeader categories={snapshot.productCategories} />
         {children}
       </body>
     </html>

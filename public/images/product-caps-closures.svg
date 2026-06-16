@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>Caps and closures</title>
+  <rect width="1200" height="900" fill="#f3f7fb"/>
+  <ellipse cx="600" cy="746" rx="390" ry="62" fill="#003366" opacity="0.12"/>
+  <g>
+    <path d="M260 420c0-74 86-134 192-134s192 60 192 134v188c0 74-86 134-192 134s-192-60-192-134z" fill="#003366"/>
+    <ellipse cx="452" cy="420" rx="192" ry="134" fill="#ff7a00"/>
+    <ellipse cx="452" cy="414" rx="118" ry="66" fill="#ffffff" opacity="0.45"/>
+    <path d="M720 300h140c56 0 102 46 102 102v238c0 56-46 102-102 102H720c-56 0-102-46-102-102V402c0-56 46-102 102-102z" fill="#ffffff" stroke="#003366" stroke-opacity="0.34" stroke-width="12"/>
+    <rect x="694" y="232" width="192" height="96" rx="28" fill="#003366"/>
+    <path d="M696 430h188M696 500h188M696 570h188" stroke="#c0cedb" stroke-width="16" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>Reagent bottles</title>
+  <rect width="1200" height="900" fill="#eef6fb"/>
+  <ellipse cx="600" cy="748" rx="340" ry="58" fill="#003366" opacity="0.12"/>
+  <g>
+    <path d="M368 196h126v118c0 36 42 54 42 114v272c0 56-38 88-94 88h-22c-56 0-94-32-94-88V428c0-60 42-78 42-114z" fill="#ffffff" fill-opacity="0.9" stroke="#003366" stroke-opacity="0.34" stroke-width="10"/>
+    <path d="M704 196h126v118c0 36 42 54 42 114v272c0 56-38 88-94 88h-22c-56 0-94-32-94-88V428c0-60 42-78 42-114z" fill="#ffffff" fill-opacity="0.9" stroke="#003366" stroke-opacity="0.34" stroke-width="10"/>
+    <rect x="380" y="112" width="102" height="94" rx="14" fill="#003366"/>
+    <rect x="716" y="112" width="102" height="94" rx="14" fill="#003366"/>
+    <rect x="372" y="94" width="118" height="30" rx="12" fill="#ff7a00"/>
+    <rect x="708" y="94" width="118" height="30" rx="12" fill="#ff7a00"/>
+    <path d="M326 548h210v142H326zM662 548h210v142H662z" fill="#d7ebfb"/>
+    <path d="M366 596h130M702 596h130" stroke="#003366" stroke-opacity="0.28" stroke-width="14" stroke-linecap="round"/>
+  </g>
+</svg>

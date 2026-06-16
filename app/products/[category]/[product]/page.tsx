@@ -4,18 +4,21 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardDescription, CardTitle } from "@/components/ui/card";
 import { ProductImage } from "@/components/product-image";
-import { getProductBySlug, getProductsByCategory } from "@/lib/products";
-import { getProductCategoryBySlug } from "@/lib/business";
+import { getContentSnapshot } from "@/lib/cms";
 
-import { productCatalog } from "@/lib/products";
+export async function generateStaticParams() {
+  const snapshot = await getContentSnapshot();
 
-export function generateStaticParams() {
-  return productCatalog.map((product) => ({ category: product.category, product: product.slug }));
+  return snapshot.productCatalog.map((product) => ({ category: product.category, product: product.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { category: string; product: string } }): Promise<Metadata> {
-  const category = getProductCategoryBySlug(params.category);
-  const product = getProductBySlug(params.product);
+type ProductPageParams = Promise<{ category: string; product: string }>;
+
+export async function generateMetadata({ params }: { params: ProductPageParams }): Promise<Metadata> {
+  const { category: categorySlug, product: productSlug } = await params;
+  const snapshot = await getContentSnapshot();
+  const category = snapshot.productCategories.find((item) => item.slug === categorySlug);
+  const product = snapshot.productCatalog.find((item) => item.slug === productSlug && item.category === categorySlug);
 
   if (!category || !product) {
     return {};
@@ -37,15 +40,17 @@ export async function generateMetadata({ params }: { params: { category: string;
   };
 }
 
-export default function ProductPage({ params }: { params: { category: string; product: string } }) {
-  const category = getProductCategoryBySlug(params.category);
-  const product = getProductBySlug(params.product);
+export default async function ProductPage({ params }: { params: ProductPageParams }) {
+  const { category: categorySlug, product: productSlug } = await params;
+  const snapshot = await getContentSnapshot();
+  const category = snapshot.productCategories.find((item) => item.slug === categorySlug);
+  const product = snapshot.productCatalog.find((item) => item.slug === productSlug && item.category === categorySlug);
 
   if (!category || !product) {
     notFound();
   }
 
-  const relatedProducts = getProductsByCategory(category.slug).filter((item) => item.slug !== product.slug).slice(0, 4);
+  const relatedProducts = snapshot.productCatalog.filter((item) => item.category === category.slug && item.slug !== product.slug).slice(0, 4);
 
   return (
     <main className="min-h-screen bg-white text-slate-900">

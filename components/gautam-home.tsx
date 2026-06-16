@@ -1,11 +1,13 @@
+import Link from "next/link";
 import { ArrowRight, BadgeCheck, Factory, Globe2, Mail, MapPin, MessageCircleMore, ShieldCheck, Truck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { contentSnapshot } from "@/lib/cms";
+import { ProductImage } from "@/components/product-image";
+import type { SiteContentSnapshot } from "@/lib/cms";
+import { getCategoryHeroBySlug } from "@/lib/business";
+import { getIndustryByName } from "@/lib/industries";
 import { cn } from "@/lib/utils";
-
-const products = contentSnapshot.productCategories.map((item) => item.name);
 
 const advantages = [
   {
@@ -30,15 +32,6 @@ const advantages = [
   },
 ];
 
-const industries = [
-  "Food & Beverage",
-  "Pharmaceuticals",
-  "Chemical & Industrial",
-  "Household & Consumer Goods",
-  "Agriculture & Fertilizers",
-  "Personal Care & Cosmetics",
-];
-
 function SectionLabel({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <p className={cn("text-sm font-semibold uppercase tracking-[0.32em] text-[#FF7A00]", className)}>
@@ -57,17 +50,21 @@ function SectionHeading({ eyebrow, title, description }: { eyebrow: string; titl
   );
 }
 
-export default function GautamHome() {
+interface GautamHomeProps {
+  snapshot: SiteContentSnapshot;
+}
+
+export default function GautamHome({ snapshot }: GautamHomeProps) {
   return (
     <main className="min-h-screen bg-white text-slate-900">
       <section id="top" className="mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:pb-20 lg:pt-16">
         <div className="space-y-8">
-          <SectionLabel>{contentSnapshot.siteContent.home.eyebrow}</SectionLabel>
+          <SectionLabel>{snapshot.siteContent.home.eyebrow}</SectionLabel>
           <div className="space-y-5">
             <h1 className="max-w-xl text-4xl font-semibold tracking-tight text-[#003366] md:text-5xl lg:text-6xl">
-              {contentSnapshot.siteContent.home.headline}
+              {snapshot.siteContent.home.headline}
             </h1>
-            <p className="max-w-xl text-lg text-slate-600 md:text-xl">{contentSnapshot.siteContent.home.subheadline}</p>
+            <p className="max-w-xl text-lg text-slate-600 md:text-xl">{snapshot.siteContent.home.subheadline}</p>
           </div>
 
           <div className="flex flex-wrap gap-3">
@@ -76,7 +73,7 @@ export default function GautamHome() {
           </div>
 
           <dl className="grid gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm sm:grid-cols-3">
-            {contentSnapshot.siteContent.home.stats.map((item) => (
+            {snapshot.siteContent.home.stats.map((item) => (
               <div key={item.label}>
                 <dt className="text-sm text-slate-500">{item.label}</dt>
                 <dd className="mt-1 text-2xl font-semibold text-[#003366]">{item.value}</dd>
@@ -116,19 +113,29 @@ export default function GautamHome() {
           description="From compact bottles to large drums, our range covers everyday packaging requirements across manufacturing, retail, and laboratory use."
         />
 
-        <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {products.map((item, index) => (
-            <Card key={item} className="border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-[#003366]/30 hover:shadow-md">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-xl text-[#003366]">{item}</CardTitle>
-                <CardDescription>Industrial-grade packaging for reliable containment and distribution.</CardDescription>
-              </CardHeader>
-              <CardContent className="flex items-center justify-between text-sm text-slate-500">
-                <span>Category {index + 1}</span>
-                <span className="rounded-full bg-[#FF7A00]/10 px-2.5 py-1 text-[#FF7A00]">In stock</span>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {snapshot.productCategories.map((category) => {
+            const hero = snapshot.categoryHeroes[category.slug] ?? getCategoryHeroBySlug(category.slug);
+            return (
+              <Card key={category.slug} className="overflow-hidden border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-[#003366]/30 hover:shadow-md">
+                <div className="h-44 w-full overflow-hidden">
+                  <ProductImage src={hero.image} alt={hero.imageAlt} className="h-full w-full object-cover" />
+                </div>
+                <CardContent className="space-y-4 p-6">
+                  <div className="space-y-2">
+                    <CardTitle className="text-xl text-[#003366]">{category.name}</CardTitle>
+                    <CardDescription className="text-slate-600">{category.summary}</CardDescription>
+                  </div>
+                  <div className="flex items-center justify-between gap-3">
+                    <Button asChild variant="outline" className="border-[#003366] text-[#003366] hover:bg-[#003366] hover:text-white">
+                      <Link href={`/products/${category.slug}`}>Explore</Link>
+                    </Button>
+                    <span className="rounded-full bg-[#FF7A00]/10 px-2.5 py-1 text-xs font-semibold text-[#FF7A00]">{category.keywords[0]}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </section>
 
@@ -167,16 +174,22 @@ export default function GautamHome() {
             <p className="text-slate-600">Our packaging portfolio supports businesses that need dependable containment, safe handling, and consistent availability.</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {industries.map((item) => (
-              <Card key={item} className="border-slate-200 bg-white shadow-sm">
-                <CardContent className="flex items-start gap-3 p-4">
+            {snapshot.industriesServed.map((item) => {
+              const industry = getIndustryByName(item);
+
+              return (
+                <Link key={item} href={`/industries/${industry.slug}`} className="block rounded-xl focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#FF7A00]/35">
+                  <Card className="h-full border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-[#003366]/30 hover:shadow-md">
+                    <CardContent className="flex items-start gap-3 p-4">
                   <span className="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FF7A00]/10 text-[#FF7A00]">
                     <Globe2 className="h-4 w-4" />
                   </span>
-                  <p className="text-sm font-medium text-slate-700">{item}</p>
-                </CardContent>
-              </Card>
-            ))}
+                      <p className="text-sm font-medium text-slate-700">{industry.name}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -186,13 +199,13 @@ export default function GautamHome() {
           <CardContent className="grid gap-6 p-6 md:grid-cols-[1fr_0.8fr] md:p-8">
             <div className="space-y-4">
               <SectionLabel className="text-[#FFD4A8]">Ready to partner</SectionLabel>
-              <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Let’s discuss your plastic packaging requirements.</h2>
-              <p className="max-w-xl text-slate-200">Whether you need standard packaging or a tailored supply plan, Gautam Plastic is ready to support your business with premium, professional service.</p>
+              <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">{snapshot.siteContent.home.cta.heading}</h2>
+              <p className="max-w-xl text-slate-200">{snapshot.siteContent.home.cta.description}</p>
             </div>
             <div className="rounded-3xl border border-white/15 bg-white/10 p-5 backdrop-blur">
               <div className="space-y-3 text-sm text-slate-100">
-                <p className="flex items-center gap-3"><MapPin className="h-4 w-4 text-[#FF7A00]" /> Ahmedabad, Gujarat</p>
-                <p className="flex items-center gap-3"><Mail className="h-4 w-4 text-[#FF7A00]" /> sales@gautamplastic.com</p>
+                <p className="flex items-center gap-3"><MapPin className="h-4 w-4 text-[#FF7A00]" /> {snapshot.business.city}, {snapshot.business.state}</p>
+                <p className="flex items-center gap-3"><Mail className="h-4 w-4 text-[#FF7A00]" /> {snapshot.business.email}</p>
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button className="bg-[#FF7A00] text-white hover:bg-[#e56e00]">Request Quote</Button>
@@ -206,7 +219,7 @@ export default function GautamHome() {
       <footer className="border-t border-slate-200 bg-slate-50/80">
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-6 text-sm text-slate-600 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <p>© 2026 Gautam Plastic. All rights reserved.</p>
-          <p>Industrial packaging supplier • Ahmedabad, Gujarat • PET, HDPE, drums, bottles, jars, caps & closures.</p>
+          <p>{snapshot.business.industry} • {snapshot.business.city}, {snapshot.business.state} • PET, HDPE, drums, bottles, jars, caps & closures.</p>
         </div>
       </footer>
     </main>

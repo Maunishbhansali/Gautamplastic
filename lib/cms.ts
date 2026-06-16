@@ -1,11 +1,14 @@
 import {
   business,
+  getCategoryHeroBySlug,
   industriesServed,
   productCategories,
   seoKeywords,
   siteContent,
 } from "@/lib/business";
 import { productCatalog } from "@/lib/products";
+import { normalizeSanityContent } from "@/lib/sanity";
+import { sanityClient } from "@/lib/sanity-client";
 
 export type ContentSource = "local" | "sanity";
 
@@ -13,6 +16,7 @@ export interface SiteContentSnapshot {
   business: typeof business;
   siteContent: typeof siteContent;
   productCategories: typeof productCategories;
+  categoryHeroes: Record<string, ReturnType<typeof getCategoryHeroBySlug>>;
   industriesServed: typeof industriesServed;
   seoKeywords: typeof seoKeywords;
   productCatalog: typeof productCatalog;
@@ -22,6 +26,7 @@ const localContentSnapshot: SiteContentSnapshot = {
   business,
   siteContent,
   productCategories,
+  categoryHeroes: Object.fromEntries(productCategories.map((category) => [category.slug, getCategoryHeroBySlug(category.slug)])),
   industriesServed,
   seoKeywords,
   productCatalog,
@@ -35,19 +40,68 @@ export async function getContentSnapshot(): Promise<SiteContentSnapshot> {
   const source = getContentSource();
 
   if (source === "sanity") {
-    const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
-    const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
-
-    if (!projectId || !dataset) {
+    if (!sanityClient) {
       return localContentSnapshot;
     }
 
-    // Future Sanity implementation hook:
-    // const client = createClient({ projectId, dataset, useCdn: true, apiVersion: "2024-01-01" });
-    // const data = await client.fetch(`*[_type == "siteSettings"][0] {...}`);
-    // return normalizeSanityContent(data);
+    try {
+      const data = await sanityClient.fetch(`{
+        "settings": *[_type == "siteSettings"][0]{
+          siteContent,
+          industriesServed,
+          seoKeywords
+        },
+        "business": *[_type == "businessProfile"][0],
+        "productCategories": *[_type == "productCategory"] | order(name asc) {
+          name,
+          slug,
+          summary,
+          keywords,
+          hero {
+            eyebrow,
+            headline,
+            description,
+            ctaLabel,
+            "image": image.asset->url,
+            imageAlt
+          }
+        },
+        "productCatalog": *[_type == "productItem"] | order(name asc) {
+          name,
+          slug,
+          "category": category->{slug},
+          shortDescription,
+          applications,
+          material,
+          seoTitle,
+          metaDescription,
+          variants,
+          capacities,
+          "image": image.asset->url,
+          imageAlt
+        }
+      }`);
 
-    return localContentSnapshot;
+      const normalized = normalizeSanityContent({
+        ...(data?.settings ?? {}),
+        business: data?.business,
+        productCategories: data?.productCategories,
+        productCatalog: data?.productCatalog,
+      });
+      const normalizedSiteContent = normalized.siteContent as Partial<typeof siteContent>;
+
+      return {
+        business: normalized.business,
+        siteContent: normalizedSiteContent.home ? normalizedSiteContent as typeof siteContent : localContentSnapshot.siteContent,
+        productCategories: normalized.productCategories.length ? normalized.productCategories : localContentSnapshot.productCategories,
+        categoryHeroes: Object.keys(normalized.categoryHeroes).length ? normalized.categoryHeroes : localContentSnapshot.categoryHeroes,
+        industriesServed: normalized.industriesServed.length ? normalized.industriesServed : localContentSnapshot.industriesServed,
+        seoKeywords: normalized.seoKeywords.length ? normalized.seoKeywords : localContentSnapshot.seoKeywords,
+        productCatalog: normalized.productCatalog.length ? normalized.productCatalog : localContentSnapshot.productCatalog,
+      };
+    } catch {
+      return localContentSnapshot;
+    }
   }
 
   return localContentSnapshot;

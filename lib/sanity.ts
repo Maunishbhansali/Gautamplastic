@@ -1,4 +1,4 @@
-import type { BusinessProfile, ProductCategory, SiteContentModel } from "@/lib/business";
+import type { BusinessProfile, CategoryHero, ProductCategory, SiteContentModel } from "@/lib/business";
 import type { ProductItem } from "@/types/product";
 
 export interface SanityBusinessDocument {
@@ -53,6 +53,7 @@ export interface SanityProductDocument {
   variants: string[];
   capacities: string[];
   image: { asset: { _ref: string } } | string;
+  imageAlt?: string;
 }
 
 export interface SanitySiteSettingsDocument {
@@ -105,6 +106,24 @@ export function normalizeSanityProduct(source: Partial<SanityProductDocument>): 
     variants: source.variants ?? [],
     capacities: source.capacities ?? [],
     image: typeof source.image === "string" ? source.image : "/images/product-placeholder.svg",
+    imageAlt: source.imageAlt,
+  };
+}
+
+export function normalizeSanityCategoryHero(source: Partial<SanityCategoryDocument>): CategoryHero | undefined {
+  const hero = source.hero;
+
+  if (!hero) {
+    return undefined;
+  }
+
+  return {
+    eyebrow: hero.eyebrow ?? "Product category",
+    title: hero.headline ?? source.name ?? "Industrial packaging products",
+    description: hero.description ?? source.summary ?? "Premium packaging products from Gautam Plastic.",
+    ctaLabel: hero.ctaLabel ?? "Request quote",
+    image: typeof hero.image === "string" ? hero.image : "/images/product-placeholder.svg",
+    imageAlt: hero.imageAlt ?? source.name ?? "Packaging product category from Gautam Plastic",
   };
 }
 
@@ -115,6 +134,13 @@ export function normalizeSanityContent(data: Record<string, unknown> | undefined
   const productCategories: ProductCategory[] = Array.isArray(source.productCategories)
     ? (source.productCategories as Partial<SanityCategoryDocument>[]).map(normalizeSanityCategory)
     : [];
+  const categoryHeroes = Array.isArray(source.productCategories)
+    ? Object.fromEntries(
+        (source.productCategories as Partial<SanityCategoryDocument>[])
+          .map((category) => [category.slug?.current, normalizeSanityCategoryHero(category)])
+          .filter((entry): entry is [string, CategoryHero] => Boolean(entry[0] && entry[1])),
+      )
+    : {};
 
   const productCatalog: ProductItem[] = Array.isArray(source.productCatalog)
     ? (source.productCatalog as Partial<SanityProductDocument>[]).map(normalizeSanityProduct)
@@ -124,6 +150,7 @@ export function normalizeSanityContent(data: Record<string, unknown> | undefined
     business,
     siteContent: siteContent ?? {},
     productCategories,
+    categoryHeroes,
     industriesServed: Array.isArray(source.industriesServed) ? (source.industriesServed as string[]) : [],
     seoKeywords: Array.isArray(source.seoKeywords) ? (source.seoKeywords as string[]) : [],
     productCatalog,

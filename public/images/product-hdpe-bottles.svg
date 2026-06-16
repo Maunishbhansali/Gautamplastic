@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>HDPE bottles</title>
+  <rect width="1200" height="900" fill="#eef3f8"/>
+  <ellipse cx="600" cy="744" rx="360" ry="64" fill="#003366" opacity="0.12"/>
+  <g fill="#f8fbff" stroke="#003366" stroke-opacity="0.32" stroke-width="10">
+    <path d="M284 205h142v98c0 36 40 50 40 106v286c0 56-38 88-94 88h-34c-56 0-94-32-94-88V409c0-56 40-70 40-106z"/>
+    <path d="M529 150h142v126c0 38 46 58 46 118v302c0 58-40 92-98 92h-38c-58 0-98-34-98-92V394c0-60 46-80 46-118z"/>
+    <path d="M774 225h142v82c0 34 40 50 40 104v282c0 56-38 88-94 88h-34c-56 0-94-32-94-88V411c0-54 40-70 40-104z"/>
+  </g>
+  <g fill="#003366">
+    <rect x="300" y="120" width="110" height="96" rx="16"/>
+    <rect x="545" y="64" width="110" height="96" rx="16"/>
+    <rect x="790" y="140" width="110" height="96" rx="16"/>
+  </g>
+  <g fill="#ff7a00">
+    <rect x="292" y="104" width="126" height="28" rx="12"/>
+    <rect x="537" y="48" width="126" height="28" rx="12"/>
+    <rect x="782" y="124" width="126" height="28" rx="12"/>
+  </g>
+  <g stroke="#b7c5d4" stroke-width="14" stroke-linecap="round">
+    <path d="M315 430h80M315 490h80M315 550h80"/>
+    <path d="M558 424h84M558 486h84M558 548h84"/>
+    <path d="M807 430h76M807 490h76M807 550h76"/>
+  </g>
+</svg>

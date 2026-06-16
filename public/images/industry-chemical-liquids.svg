@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>Chemical and industrial liquid packaging</title>
+  <rect width="1200" height="900" fill="#edf4fa"/>
+  <ellipse cx="600" cy="760" rx="420" ry="64" fill="#003366" opacity="0.12"/>
+  <path d="M250 300c0-72 50-122 122-122h270c72 0 122 50 122 122v384c0 64-44 108-108 108H358c-64 0-108-44-108-108z" fill="#f9fbff" stroke="#003366" stroke-opacity="0.34" stroke-width="12"/>
+  <path d="M374 178h206c42 0 76 34 76 76v50H546v-28c0-24-18-42-42-42h-58c-24 0-42 18-42 42v28H298v-50c0-42 34-76 76-76z" fill="#dce8f3" stroke="#003366" stroke-opacity="0.26" stroke-width="10"/>
+  <rect x="656" y="232" width="100" height="90" rx="18" fill="#003366"/>
+  <rect x="666" y="210" width="80" height="34" rx="14" fill="#ff7a00"/>
+  <path d="M360 450h170M360 524h170M360 598h170" stroke="#bdc9d6" stroke-width="16" stroke-linecap="round"/>
+  <path d="M822 260h150c44 0 80 36 80 80v312c0 78-64 142-142 142h-26c-78 0-142-64-142-142V340c0-44 36-80 80-80z" fill="#fff" stroke="#003366" stroke-opacity="0.32" stroke-width="12"/>
+  <path d="M768 390h258M768 526h258M790 666h214" stroke="#003366" stroke-opacity="0.18" stroke-width="18" stroke-linecap="round"/>
+  <path d="M846 260h102" stroke="#ff7a00" stroke-width="22" stroke-linecap="round"/>
+</svg>

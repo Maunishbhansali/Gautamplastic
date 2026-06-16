@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title">
+  <title>HDPE bottles</title>
+  <rect width="800" height="520" rx="40" fill="#F3F7FF" />
+  <g fill="#003366">
+    <path d="M240 160c0-30 20-50 45-50h20c25 0 45 20 45 50v250h-110V160Z" />
+    <path d="M360 140c0-30 20-50 45-50h20c25 0 45 20 45 50v270h-110V140Z" />
+  </g>
+  <circle cx="360" cy="120" r="18" fill="#FF7A00" />
+  <text x="50%" y="470" text-anchor="middle" font-family="Verdana, sans-serif" font-size="48" fill="#003366">HDPE Bottles</text>
+</svg>

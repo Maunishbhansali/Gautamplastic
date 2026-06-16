@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title">
+  <title>HDPE jerry cans</title>
+  <rect width="800" height="520" rx="40" fill="#EAF6F7" />
+  <g fill="#003366">
+    <rect x="220" y="120" width="150" height="260" rx="30" />
+    <path d="M295 120c-22 0-30 18-30 30v20h120v-20c0-12-8-30-30-30h-60Z" />
+    <rect x="240" y="90" width="70" height="40" rx="20" />
+  </g>
+  <text x="50%" y="470" text-anchor="middle" font-family="Verdana, sans-serif" font-size="42" fill="#003366">Jerry Cans</text>
+</svg>

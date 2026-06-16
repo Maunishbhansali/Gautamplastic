@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>PET jars</title>
+  <rect width="1200" height="900" fill="#f2f7fb"/>
+  <ellipse cx="600" cy="728" rx="390" ry="70" fill="#003366" opacity="0.12"/>
+  <g stroke="#003366" stroke-opacity="0.34" stroke-width="10">
+    <path d="M254 315h260v70c0 28 30 42 30 84v188c0 78-58 122-136 122h-48c-78 0-136-44-136-122V469c0-42 30-56 30-84z" fill="#d8f0ff" fill-opacity="0.72"/>
+    <path d="M610 268h280v80c0 30 34 48 34 94v212c0 80-60 126-140 126h-68c-80 0-140-46-140-126V442c0-46 34-64 34-94z" fill="#fff" fill-opacity="0.88"/>
+  </g>
+  <g fill="#003366">
+    <rect x="236" y="252" width="296" height="78" rx="22"/>
+    <rect x="590" y="194" width="320" height="92" rx="24"/>
+  </g>
+  <g fill="#ff7a00">
+    <rect x="250" y="232" width="268" height="32" rx="16"/>
+    <rect x="604" y="170" width="292" height="36" rx="18"/>
+  </g>
+  <g stroke="#ffffff" stroke-width="14" stroke-linecap="round" opacity="0.72">
+    <path d="M306 510h154M306 576h154M662 505h176M662 572h176"/>
+  </g>
+</svg>

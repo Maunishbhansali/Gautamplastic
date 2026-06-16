@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>HDPE drums</title>
+  <rect width="1200" height="900" fill="#edf4fa"/>
+  <ellipse cx="600" cy="760" rx="400" ry="66" fill="#003366" opacity="0.13"/>
+  <g>
+    <path d="M355 210h490c52 0 94 42 94 94v356c0 76-62 138-138 138H399c-76 0-138-62-138-138V304c0-52 42-94 94-94z" fill="#f8fbff" stroke="#003366" stroke-opacity="0.35" stroke-width="12"/>
+    <ellipse cx="600" cy="246" rx="338" ry="82" fill="#dce8f3" stroke="#003366" stroke-opacity="0.3" stroke-width="10"/>
+    <path d="M280 360h640M280 512h640M300 668h600" stroke="#003366" stroke-opacity="0.2" stroke-width="18" stroke-linecap="round"/>
+    <path d="M420 246h360" stroke="#ff7a00" stroke-width="24" stroke-linecap="round"/>
+    <circle cx="484" cy="246" r="28" fill="#003366"/>
+    <circle cx="716" cy="246" r="28" fill="#003366"/>
+  </g>
+</svg>

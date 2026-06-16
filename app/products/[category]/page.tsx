@@ -5,21 +5,27 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ProductImage } from "@/components/product-image";
-import { business, getCategoryHeroBySlug, getProductCategoryBySlug, productCategories } from "@/lib/business";
-import { getProductsByCategory } from "@/lib/products";
+import { getCategoryHeroBySlug } from "@/lib/business";
+import { getContentSnapshot } from "@/lib/cms";
 
-export function generateStaticParams() {
-  return productCategories.map((category) => ({ category: category.slug }));
+export async function generateStaticParams() {
+  const snapshot = await getContentSnapshot();
+
+  return snapshot.productCategories.map((category) => ({ category: category.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { category: string } }): Promise<Metadata> {
-  const category = getProductCategoryBySlug(params.category);
+type CategoryPageParams = Promise<{ category: string }>;
+
+export async function generateMetadata({ params }: { params: CategoryPageParams }): Promise<Metadata> {
+  const { category: categorySlug } = await params;
+  const snapshot = await getContentSnapshot();
+  const category = snapshot.productCategories.find((item) => item.slug === categorySlug);
 
   if (!category) {
     return {};
   }
 
-  const hero = getCategoryHeroBySlug(category.slug);
+  const hero = snapshot.categoryHeroes[category.slug] ?? getCategoryHeroBySlug(category.slug);
 
   return {
     title: `${category.name} Supplier Ahmedabad | Gautam Plastic`,
@@ -37,15 +43,17 @@ export async function generateMetadata({ params }: { params: { category: string 
   };
 }
 
-export default async function CategoryPage({ params }: { params: { category: string } }) {
-  const category = getProductCategoryBySlug(params.category);
+export default async function CategoryPage({ params }: { params: CategoryPageParams }) {
+  const { category: categorySlug } = await params;
+  const snapshot = await getContentSnapshot();
+  const category = snapshot.productCategories.find((item) => item.slug === categorySlug);
 
   if (!category) {
     notFound();
   }
 
-  const hero = getCategoryHeroBySlug(category.slug);
-  const products = getProductsByCategory(category.slug);
+  const hero = snapshot.categoryHeroes[category.slug] ?? getCategoryHeroBySlug(category.slug);
+  const products = snapshot.productCatalog.filter((product) => product.category === category.slug);
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -112,10 +120,10 @@ export default async function CategoryPage({ params }: { params: { category: str
             <CardTitle className="text-2xl text-[#003366]">Business details</CardTitle>
           </CardHeader>
           <CardContent className="grid gap-4 text-sm text-slate-700 md:grid-cols-2">
-            <p><strong>Business:</strong> {business.fullName}</p>
-            <p><strong>Experience:</strong> {business.established}</p>
-            <p><strong>Location:</strong> {business.location}</p>
-            <p><strong>Phone:</strong> {business.phones.join(" / ")}</p>
+            <p><strong>Business:</strong> {snapshot.business.fullName}</p>
+            <p><strong>Experience:</strong> {snapshot.business.established}</p>
+            <p><strong>Location:</strong> {snapshot.business.location}</p>
+            <p><strong>Phone:</strong> {snapshot.business.phones.join(" / ")}</p>
           </CardContent>
         </Card>
       </section>

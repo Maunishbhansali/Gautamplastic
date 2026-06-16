@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title">
+  <title>PET jars</title>
+  <rect width="800" height="520" rx="40" fill="#F5F9FF" />
+  <g fill="#003366">
+    <rect x="220" y="210" width="120" height="180" rx="28" />
+    <rect x="380" y="200" width="120" height="190" rx="28" />
+    <rect x="540" y="190" width="120" height="200" rx="28" />
+  </g>
+  <text x="50%" y="470" text-anchor="middle" font-family="Verdana, sans-serif" font-size="48" fill="#003366">PET Jars</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>Plastic pumps</title>
+  <rect width="1200" height="900" fill="#f2f7fb"/>
+  <ellipse cx="600" cy="752" rx="360" ry="62" fill="#003366" opacity="0.12"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M374 262h212c66 0 118 52 118 118v26" stroke="#003366" stroke-width="52"/>
+    <path d="M704 406h150c40 0 72 32 72 72v22" stroke="#003366" stroke-width="44"/>
+    <path d="M356 214h228" stroke="#ff7a00" stroke-width="44"/>
+    <path d="M446 364v364" stroke="#003366" stroke-width="54"/>
+    <path d="M388 728h202" stroke="#003366" stroke-width="54"/>
+    <path d="M780 500v126c0 42-28 70-70 70H594" stroke="#b9c8d7" stroke-width="38"/>
+    <path d="M862 542c32 38 48 84 48 138" stroke="#ff7a00" stroke-width="28"/>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>Plastic measuring units</title>
+  <rect width="1200" height="900" fill="#eef5fb"/>
+  <ellipse cx="600" cy="756" rx="370" ry="62" fill="#003366" opacity="0.12"/>
+  <g>
+    <path d="M316 190h226l-34 486c-6 74-58 116-132 116h-18c-74 0-126-42-132-116z" fill="#ffffff" fill-opacity="0.88" stroke="#003366" stroke-opacity="0.34" stroke-width="10"/>
+    <path d="M680 188h154v492c0 68-44 112-112 112h-10c-68 0-112-44-112-112V268c0-44 36-80 80-80z" fill="#ffffff" fill-opacity="0.9" stroke="#003366" stroke-opacity="0.34" stroke-width="10"/>
+    <path d="M290 190h278" stroke="#ff7a00" stroke-width="34" stroke-linecap="round"/>
+    <path d="M690 188h164" stroke="#ff7a00" stroke-width="34" stroke-linecap="round"/>
+    <g stroke="#003366" stroke-opacity="0.28" stroke-width="12" stroke-linecap="round">
+      <path d="M354 316h92M354 390h66M354 464h92M354 538h66M354 612h92"/>
+      <path d="M690 316h72M690 390h48M690 464h72M690 538h48M690 612h72"/>
+    </g>
+  </g>
+</svg>

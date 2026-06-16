@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>Retail and distribution packaging supply</title>
+  <rect width="1200" height="900" fill="#f3f7fb"/>
+  <ellipse cx="600" cy="758" rx="400" ry="64" fill="#003366" opacity="0.12"/>
+  <path d="M230 404h300v276c0 58-40 98-98 98H328c-58 0-98-40-98-98z" fill="#fff" stroke="#003366" stroke-opacity="0.32" stroke-width="12"/>
+  <path d="M230 404l82-128h300l-82 128z" fill="#dce8f3" stroke="#003366" stroke-opacity="0.26" stroke-width="10"/>
+  <path d="M530 404l82-128 82 128v276c0 58-40 98-98 98h-66z" fill="#ff7a00" opacity="0.82"/>
+  <path d="M330 520h108M330 590h108" stroke="#bdc9d6" stroke-width="14" stroke-linecap="round"/>
+  <path d="M782 250h122v92c0 34 40 52 40 108v246c0 54-36 86-90 86h-22c-54 0-90-32-90-86V450c0-56 40-74 40-108z" fill="#dff2ff" stroke="#003366" stroke-opacity="0.34" stroke-width="10"/>
+  <rect x="798" y="164" width="90" height="96" rx="16" fill="#003366"/>
+  <rect x="790" y="144" width="106" height="32" rx="14" fill="#ff7a00"/>
+  <path d="M806 500h74M806 568h74" stroke="#fff" stroke-width="14" stroke-linecap="round" opacity="0.82"/>
+</svg>

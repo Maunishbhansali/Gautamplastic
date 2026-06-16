@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>Pharmaceutical and laboratory packaging</title>
+  <rect width="1200" height="900" fill="#eef6fb"/>
+  <ellipse cx="600" cy="748" rx="360" ry="60" fill="#003366" opacity="0.12"/>
+  <path d="M294 206h126v116c0 34 42 54 42 112v260c0 54-36 86-90 86h-30c-54 0-90-32-90-86V434c0-58 42-78 42-112z" fill="#fff" stroke="#003366" stroke-opacity="0.34" stroke-width="10"/>
+  <path d="M666 206h126v116c0 34 42 54 42 112v260c0 54-36 86-90 86h-30c-54 0-90-32-90-86V434c0-58 42-78 42-112z" fill="#fff" stroke="#003366" stroke-opacity="0.34" stroke-width="10"/>
+  <path d="M470 340h88v324c0 70-44 116-114 116h-10c-70 0-114-46-114-116V424c0-46 38-84 84-84z" fill="#dff2ff" stroke="#003366" stroke-opacity="0.34" stroke-width="10"/>
+  <rect x="306" y="122" width="102" height="94" rx="14" fill="#003366"/>
+  <rect x="678" y="122" width="102" height="94" rx="14" fill="#003366"/>
+  <rect x="298" y="104" width="118" height="30" rx="12" fill="#ff7a00"/>
+  <rect x="670" y="104" width="118" height="30" rx="12" fill="#ff7a00"/>
+  <path d="M252 540h210v138H252zM624 540h210v138H624z" fill="#d8ebfb"/>
+  <path d="M492 432h42M492 500h42M492 568h42M492 636h42" stroke="#003366" stroke-opacity="0.28" stroke-width="12" stroke-linecap="round"/>
+  <path d="M910 310l-72 126h144z" fill="#ff7a00" opacity="0.86"/>
+</svg>

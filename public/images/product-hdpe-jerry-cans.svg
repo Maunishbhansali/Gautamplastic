@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>HDPE jerry cans</title>
+  <rect width="1200" height="900" fill="#eef5fb"/>
+  <ellipse cx="600" cy="752" rx="390" ry="64" fill="#003366" opacity="0.13"/>
+  <g>
+    <path d="M310 292c0-74 50-124 124-124h330c74 0 124 50 124 124v392c0 64-44 108-108 108H420c-64 0-108-44-108-108z" fill="#f9fbff" stroke="#003366" stroke-opacity="0.34" stroke-width="12"/>
+    <path d="M442 168h242c44 0 78 34 78 78v56H636v-32c0-26-18-44-44-44h-74c-26 0-44 18-44 44v32H364v-56c0-44 34-78 78-78z" fill="#dce8f3" stroke="#003366" stroke-opacity="0.28" stroke-width="10"/>
+    <rect x="775" y="230" width="106" height="92" rx="18" fill="#003366"/>
+    <rect x="786" y="207" width="84" height="34" rx="14" fill="#ff7a00"/>
+    <path d="M390 432h190M390 506h190M390 580h190" stroke="#bdc9d6" stroke-width="16" stroke-linecap="round"/>
+    <path d="M690 398c82 72 104 174 66 306" stroke="#ff7a00" stroke-width="18" stroke-linecap="round" fill="none" opacity="0.8"/>
+  </g>
+</svg>

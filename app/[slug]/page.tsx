@@ -12,8 +12,11 @@ export async function generateStaticParams() {
   ];
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const page = getSeoLandingPage(params.slug);
+type SeoLandingPageParams = Promise<{ slug: string }>;
+
+export async function generateMetadata({ params }: { params: SeoLandingPageParams }): Promise<Metadata> {
+  const { slug } = await params;
+  const page = getSeoLandingPage(slug);
 
   if (!page) {
     return {};
@@ -26,8 +29,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function SeoLandingPage({ params }: { params: { slug: string } }) {
-  const page = getSeoLandingPage(params.slug);
+export default async function SeoLandingPage({ params }: { params: SeoLandingPageParams }) {
+  const { slug } = await params;
+  const page = getSeoLandingPage(slug);
 
   if (!page) {
     notFound();

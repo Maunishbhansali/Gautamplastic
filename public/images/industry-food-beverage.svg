@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title>Food and beverage packaging</title>
+  <rect width="1200" height="900" fill="#f4f8fb"/>
+  <ellipse cx="600" cy="748" rx="390" ry="62" fill="#003366" opacity="0.12"/>
+  <g stroke="#003366" stroke-opacity="0.32" stroke-width="10">
+    <path d="M266 224h122v96c0 36 42 54 42 112v260c0 54-36 86-90 86h-26c-54 0-90-32-90-86V432c0-58 42-76 42-112z" fill="#dff2ff"/>
+    <path d="M504 290h270v72c0 28 30 42 30 84v212c0 76-58 120-134 120h-62c-76 0-134-44-134-120V446c0-42 30-56 30-84z" fill="#fff"/>
+    <path d="M850 228h104v128c0 32 34 50 34 104v230c0 54-36 86-90 86h-8c-54 0-90-32-90-86V460c0-54 34-72 34-104V244c0-10 6-16 16-16z" fill="#dff2ff"/>
+  </g>
+  <g fill="#003366">
+    <rect x="282" y="142" width="90" height="92" rx="16"/>
+    <rect x="482" y="228" width="314" height="86" rx="24"/>
+    <rect x="850" y="142" width="104" height="92" rx="16"/>
+  </g>
+  <g fill="#ff7a00">
+    <rect x="274" y="122" width="106" height="32" rx="14"/>
+    <rect x="504" y="204" width="270" height="34" rx="17"/>
+    <rect x="842" y="122" width="120" height="32" rx="14"/>
+  </g>
+  <path d="M300 486h58M562 512h156M562 580h156M874 488h64" stroke="#b9c8d7" stroke-width="14" stroke-linecap="round"/>
+</svg>
