@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ProductImage } from "@/components/product-image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardDescription, CardTitle } from "@/components/ui/card";
 import { getBlogPosts } from "@/lib/blog";
@@ -22,7 +23,8 @@ export default function BlogPage() {
       <section className="mx-auto max-w-7xl gap-6 px-4 pb-16 sm:px-6 lg:px-8">
         <div className="grid gap-6 md:grid-cols-2">
           {posts.map((post) => (
-            <Card key={post.slug} className="border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-[#003366]/30 hover:shadow-md">
+            <Card key={post.slug} className="overflow-hidden border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-[#003366]/30 hover:shadow-md">
+              <ProductImage src={post.image} alt={post.imageAlt} className="h-52 w-full object-cover" />
               <CardHeader>
                 <CardTitle className="text-xl text-[#003366]">{post.title}</CardTitle>
                 <CardDescription>{post.excerpt}</CardDescription>

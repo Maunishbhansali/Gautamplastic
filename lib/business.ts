@@ -160,7 +160,7 @@ export const productCategoryHeroContent: Record<string, CategoryHero> = {
     title: "PET bottles built for beverages, chemicals and personal care liquids",
     description: "Lightweight PET bottle variants in clear, amber and sport-cap styles for industrial and commercial packaging in Ahmedabad.",
     ctaLabel: "Request PET bottle quote",
-    image: "/images/product-pet-bottles.svg",
+    image: "/images/real-product-pet-bottles.png",
     imageAlt: "PET bottles from Gautam Plastic",
   },
   "hdpe-bottles": {
@@ -168,7 +168,7 @@ export const productCategoryHeroContent: Record<string, CategoryHero> = {
     title: "HDPE bottles engineered for chemicals, oils and industrial liquids",
     description: "Robust, chemical-safe HDPE bottles suitable for packaging, storage and transportation across Gujarat.",
     ctaLabel: "Request HDPE bottle quote",
-    image: "/images/product-hdpe-bottles.svg",
+    image: "/images/real-product-hdpe-bottles.png",
     imageAlt: "HDPE bottles for industrial liquids",
   },
   "pet-jars": {
@@ -176,7 +176,7 @@ export const productCategoryHeroContent: Record<string, CategoryHero> = {
     title: "PET jars for food, cosmetics and specialty packaging",
     description: "Transparent and stackable PET jars ideal for creams, powders and consumer products in Ahmedabad.",
     ctaLabel: "Request PET jar quote",
-    image: "/images/product-pet-jars.svg",
+    image: "/images/real-product-pet-jars.png",
     imageAlt: "PET jars for packaging",
   },
   "hdpe-jerry-cans": {
@@ -184,7 +184,7 @@ export const productCategoryHeroContent: Record<string, CategoryHero> = {
     title: "HDPE jerry cans for safe transport and storage of liquids",
     description: "Reliable jerry cans in 5L, 10L and 20L sizes built for chemical, lubricant and agricultural packaging.",
     ctaLabel: "Request jerry can quote",
-    image: "/images/product-hdpe-jerry-cans.svg",
+    image: "/images/real-product-hdpe-jerry-cans.png",
     imageAlt: "HDPE jerry cans",
   },
   "hdpe-drums": {
@@ -192,7 +192,7 @@ export const productCategoryHeroContent: Record<string, CategoryHero> = {
     title: "HDPE drums for industrial storage and transportation",
     description: "Sturdy 50L and 100L drums for chemicals, water treatment and bulk packaging needs across Gujarat.",
     ctaLabel: "Request drum quote",
-    image: "/images/product-hdpe-drums.svg",
+    image: "/images/real-product-hdpe-drums.png",
     imageAlt: "HDPE storage drums",
   },
   "plastic-containers": {
@@ -200,7 +200,7 @@ export const productCategoryHeroContent: Record<string, CategoryHero> = {
     title: "Plastic containers for storage, retail and logistics",
     description: "Durable containers for food-grade storage, packaging and inventory transport across industrial applications.",
     ctaLabel: "Request container quote",
-    image: "/images/product-plastic-containers.svg",
+    image: "/images/real-product-plastic-containers.png",
     imageAlt: "Plastic containers",
   },
   "reagent-bottles": {
@@ -208,7 +208,7 @@ export const productCategoryHeroContent: Record<string, CategoryHero> = {
     title: "Reagent bottles designed for chemical handling and laboratory use",
     description: "Quality reagent bottles for research, pharmaceutical and analytical applications in Ahmedabad.",
     ctaLabel: "Request reagent bottle quote",
-    image: "/images/product-reagent-bottles.svg",
+    image: "/images/real-product-reagent-bottles.png",
     imageAlt: "Reagent bottles for laboratories",
   },
   "plastic-pumps": {
@@ -216,7 +216,7 @@ export const productCategoryHeroContent: Record<string, CategoryHero> = {
     title: "Plastic pumps for cosmetics, cleaners and industrial sprayers",
     description: "Trigger sprays, lotion pumps and mist sprayers for reliable dispensing in packaging applications.",
     ctaLabel: "Request pump quote",
-    image: "/images/product-plastic-pumps.svg",
+    image: "/images/real-product-plastic-pumps.png",
     imageAlt: "Plastic pump dispensers",
   },
   "measuring-units": {
@@ -224,7 +224,7 @@ export const productCategoryHeroContent: Record<string, CategoryHero> = {
     title: "Measuring cups and graduated cylinders for precision dosing",
     description: "Plastic measuring tools for labs, manufacturing and product formulation in Ahmedabad.",
     ctaLabel: "Request measuring unit quote",
-    image: "/images/product-measuring-units.svg",
+    image: "/images/real-product-measuring-units.png",
     imageAlt: "Plastic measuring units",
   },
   "caps-and-closures": {
@@ -232,7 +232,7 @@ export const productCategoryHeroContent: Record<string, CategoryHero> = {
     title: "Caps and closures for bottles, jars and containers",
     description: "Wide range of screw caps, flip tops and child-resistant closures that protect packaged liquids.",
     ctaLabel: "Request closure quote",
-    image: "/images/product-caps-closures.svg",
+    image: "/images/real-product-caps-closures.png",
     imageAlt: "Bottle caps and closures",
   },
 };

@@ -13,7 +13,7 @@ export const blogPosts: BlogPost[] = [
     category: "Packaging Guidance",
     publishedAt: "2026-05-18",
     keywords: ["PET bottle supplier", "packaging guidance", "plastic bottle selection"],
-    image: "/images/blog-pet-bottle.svg",
+    image: "/images/real-product-pet-bottles.png",
     imageAlt: "PET bottle packaging guidance",
   },
   {
@@ -28,7 +28,7 @@ export const blogPosts: BlogPost[] = [
     category: "Industrial Packaging",
     publishedAt: "2026-06-05",
     keywords: ["HDPE bottle supplier", "chemical packaging", "industrial packaging"],
-    image: "/images/blog-hdpe-bottle.svg",
+    image: "/images/real-product-hdpe-bottles.png",
     imageAlt: "HDPE bottles for industrial liquids",
   },
   {
@@ -43,7 +43,7 @@ export const blogPosts: BlogPost[] = [
     category: "Packaging Advice",
     publishedAt: "2026-06-12",
     keywords: ["plastic jar supplier", "container packaging", "packaging use cases"],
-    image: "/images/blog-plastic-jar.svg",
+    image: "/images/real-product-pet-jars.png",
     imageAlt: "Plastic jars and containers",
   },
 ];

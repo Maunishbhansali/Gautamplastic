@@ -12,7 +12,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "Small 100ml clear PET bottles for sample packaging, laboratory use and liquid dispensing from Gautam Plastic in Ahmedabad.",
     variants: ["Clear", "Flint", "Amber"],
     capacities: ["100ml"],
-    image: "/images/product-pet-bottles.svg",
+    image: "/images/real-product-pet-bottles.png",
   },
   {
     name: "PET Bottle 250ml Amber",
@@ -25,7 +25,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "Amber PET bottle in 250ml capacity ideal for UV-sensitive liquids and industrial packaging in Gujarat.",
     variants: ["Amber", "Green", "Blue"],
     capacities: ["250ml"],
-    image: "/images/product-pet-bottles.svg",
+    image: "/images/real-product-pet-bottles.png",
   },
   {
     name: "PET Bottle 500ml Round",
@@ -38,7 +38,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "500ml round PET bottle for beverage, cosmetic and chemical applications supplied from Ahmedabad.",
     variants: ["Clear", "White", "Translucent"],
     capacities: ["500ml"],
-    image: "/images/product-pet-bottles.svg",
+    image: "/images/real-product-pet-bottles.png",
   },
   {
     name: "PET Bottle 1L Sport Cap",
@@ -51,7 +51,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "1 liter PET bottle with sport cap for beverages and hydration packaging, supplied by Gautam Plastic.",
     variants: ["Sport cap", "Screw cap"],
     capacities: ["1L"],
-    image: "/images/product-pet-bottles.svg",
+    image: "/images/real-product-pet-bottles.png",
   },
   {
     name: "HDPE Bottle 250ml White",
@@ -64,7 +64,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "250ml white HDPE bottle for industrial chemicals and household liquids available in Ahmedabad.",
     variants: ["White", "Natural", "Opaque"],
     capacities: ["250ml"],
-    image: "/images/product-hdpe-bottles.svg",
+    image: "/images/real-product-hdpe-bottles.png",
   },
   {
     name: "HDPE Bottle 500ml Natural",
@@ -77,7 +77,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "500ml natural HDPE bottle for industrial liquids and packaging applications in Gujarat.",
     variants: ["Natural", "Opaque", "Black"],
     capacities: ["500ml"],
-    image: "/images/product-hdpe-bottles.svg",
+    image: "/images/real-product-hdpe-bottles.png",
   },
   {
     name: "HDPE Bottle 1L Screw Top",
@@ -90,7 +90,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "1 liter HDPE bottle with secure screw top for chemical and industrial packing in Ahmedabad.",
     variants: ["Screw top", "Tamper-evident cap"],
     capacities: ["1L"],
-    image: "/images/product-hdpe-bottles.svg",
+    image: "/images/real-product-hdpe-bottles.png",
   },
   {
     name: "PET Jar 100ml Round",
@@ -103,7 +103,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "100ml PET jar for personal care, food and cosmetic packaging from Gautam Plastic in Gujarat.",
     variants: ["Round", "Square", "Cylinder"],
     capacities: ["100ml"],
-    image: "/images/product-pet-jars.svg",
+    image: "/images/real-product-pet-jars.png",
   },
   {
     name: "PET Jar 250ml Wide Mouth",
@@ -116,7 +116,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "Wide-mouth 250ml PET jar designed for food, cosmetics and specialty packaging in Ahmedabad.",
     variants: ["Wide mouth", "Standard mouth"],
     capacities: ["250ml"],
-    image: "/images/product-pet-jars.svg",
+    image: "/images/real-product-pet-jars.png",
   },
   {
     name: "PET Jar 500ml Stackable",
@@ -129,7 +129,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "Stackable 500ml PET jar for retail and industrial packaging sold from Ahmedabad.",
     variants: ["Stackable", "Non-stackable"],
     capacities: ["500ml"],
-    image: "/images/product-pet-jars.svg",
+    image: "/images/real-product-pet-jars.png",
   },
   {
     name: "HDPE Jerry Can 5L",
@@ -142,7 +142,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "5 liter HDPE jerry can for reliable fluid transport and storage across industrial applications.",
     variants: ["Screw cap", "Handle grip", "Spout fit"],
     capacities: ["5L"],
-    image: "/images/product-hdpe-jerry-cans.svg",
+    image: "/images/real-product-hdpe-jerry-cans.png",
   },
   {
     name: "HDPE Jerry Can 10L",
@@ -155,7 +155,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "10 liter HDPE jerry can with safe sealing for industrial and agricultural liquids in Gujarat.",
     variants: ["Natural", "Blue", "Black"],
     capacities: ["10L"],
-    image: "/images/product-hdpe-jerry-cans.svg",
+    image: "/images/real-product-hdpe-jerry-cans.png",
   },
   {
     name: "HDPE Jerry Can 20L",
@@ -168,7 +168,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "20 liter HDPE jerry can built for safe transportation and storage of industrial liquids.",
     variants: ["Stackable", "Vent cap capable"],
     capacities: ["20L"],
-    image: "/images/product-hdpe-jerry-cans.svg",
+    image: "/images/real-product-hdpe-jerry-cans.png",
   },
   {
     name: "HDPE Drum 50L",
@@ -181,7 +181,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "50 liter HDPE drum for industrial chemicals, water treatment, and safe bulk storage.",
     variants: ["Open top", "Closed top"],
     capacities: ["50L"],
-    image: "/images/product-hdpe-drums.svg",
+    image: "/images/real-product-hdpe-drums.png",
   },
   {
     name: "HDPE Drum 100L",
@@ -194,7 +194,7 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "100 liter HDPE drum for bulk storage and transport of industrial chemicals in Gujarat.",
     variants: ["Tie-down ring", "Leak-proof lid"],
     capacities: ["100L"],
-    image: "/images/product-hdpe-drums.svg",
+    image: "/images/real-product-hdpe-drums.png",
   },
   {
     name: "Plastic Container 1L Food Grade",
@@ -207,6 +207,6 @@ export const productCatalog: ProductItem[] = [
     metaDescription: "1 liter food-grade plastic container for retail and storage applications in Ahmedabad.",
     variants: ["Snap lid", "Tamper seal"],
     capacities: ["1L"],
-    image: "/images/product-plastic-containers.svg",
+    image: "/images/real-product-plastic-containers.png",
   }
 ];
