@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import SiteHeader from "@/components/site-header";
+import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 
 import { business, seoKeywords } from "@/lib/business";
 import { getContentSnapshot } from "@/lib/cms";
@@ -111,6 +112,7 @@ export default async function RootLayout({
         />
         <SiteHeader categories={snapshot.productCategories} />
         {children}
+        <FloatingWhatsApp />
       </body>
     </html>
   );

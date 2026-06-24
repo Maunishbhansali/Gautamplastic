@@ -1,4 +1,3 @@
-import type { BlogPost } from "@/types/blog";
 import { blogPosts } from "@/lib/data/blog";
 
 export { blogPosts };

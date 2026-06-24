@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
 
 import { ProductImage } from "@/components/product-image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getContentSnapshot } from "@/lib/cms";
 import { getIndustryByName } from "@/lib/industries";
 
@@ -15,40 +15,49 @@ export default async function IndustriesPage() {
   const industries = snapshot.industriesServed.map(getIndustryByName);
 
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#FF7A00]">Industries</p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-[#003366] md:text-5xl">Industrial packaging for business-critical sectors</h1>
-        <p className="mt-4 max-w-3xl text-lg text-slate-600">Gautam Plastic supports packaging requirements for pharmaceutical, food, cosmetics, chemical and household product businesses.</p>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {industries.map((item) => (
-            <Link key={item.slug} href={`/industries/${item.slug}`} className="block rounded-xl focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#FF7A00]/35">
-              <Card className="h-full overflow-hidden border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-[#003366]/30 hover:shadow-md">
-                <ProductImage src={item.image} alt={item.imageAlt} className="h-44 w-full object-cover" />
-                <CardHeader>
-                  <CardTitle className="text-xl text-[#003366]">{item.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-slate-600">{item.summary}</CardContent>
-              </Card>
-            </Link>
-          ))}
+    <main className="min-h-screen bg-[#f7f3eb] text-zinc-950">
+      <section className="bg-[#101f1c] px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-amber-300">Industries</p>
+          <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-tight tracking-tight md:text-6xl">
+            Industrial packaging for business-critical sectors.
+          </h1>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-emerald-50/80">
+            Gautam Plastic supports packaging requirements for pharmaceutical, food, cosmetics, chemical and household product businesses.
+          </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-8 shadow-sm">
-          <h2 className="text-3xl font-semibold tracking-tight text-[#003366]">Packaging support for your industry</h2>
-          <p className="mt-4 text-slate-600">Our focus is on consistent stock, simple sourcing and product compatibility so procurement teams can rely on packaging that fits their needs.</p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {industries.map((industry) => (
-              <Link key={industry.slug} href={`/industries/${industry.slug}`} className="rounded-3xl border border-slate-200 bg-white p-5 text-sm text-slate-700 shadow-sm transition hover:border-[#003366]/30 hover:text-[#003366]">
-                {industry.name}
-              </Link>
-            ))}
-          </div>
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {industries.map((item) => (
+            <Link
+              key={item.slug}
+              href={`/industries/${item.slug}`}
+              className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-zinc-400 hover:shadow-2xl"
+            >
+              <div className="h-56 overflow-hidden bg-zinc-100">
+                <ProductImage src={item.image} alt={item.imageAlt} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05]" />
+              </div>
+              <div className="p-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h2 className="text-xl font-semibold text-zinc-950">{item.name}</h2>
+                    <p className="mt-2 text-sm leading-6 text-zinc-600">{item.summary}</p>
+                  </div>
+                  <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-amber-600 transition group-hover:translate-x-1" />
+                </div>
+                <div className="mt-5 grid gap-2">
+                  {item.highlights.slice(0, 2).map((highlight) => (
+                    <span key={highlight} className="flex items-start gap-2 text-sm leading-6 text-zinc-600">
+                      <Check className="mt-1 h-4 w-4 shrink-0 text-amber-600" />
+                      {highlight}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
     </main>

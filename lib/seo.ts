@@ -1,4 +1,3 @@
-import type { SeoLandingPage } from "@/types/seo";
 import { seoLandingPages } from "@/lib/data/seo-pages";
 
 export { seoLandingPages };

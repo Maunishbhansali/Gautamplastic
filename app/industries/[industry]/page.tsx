@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowRight, Check } from "lucide-react";
 
 import { ProductImage } from "@/components/product-image";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getContentSnapshot } from "@/lib/cms";
 import { getIndustryByName, getIndustryBySlug } from "@/lib/industries";
 
@@ -53,63 +52,64 @@ export default async function IndustryPage({ params }: { params: IndustryPagePar
   const categories = relatedCategories.length ? relatedCategories.slice(0, 4) : snapshot.productCategories.slice(0, 4);
 
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-      <section className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.9fr_0.8fr] lg:items-center lg:px-8">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#FF7A00]">Industry packaging</p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-[#003366] md:text-5xl">{industry.heroTitle}</h1>
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">{industry.heroDescription}</p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button asChild className="bg-[#003366] text-white hover:bg-[#00254f]">
-              <Link href="/request-quote">Request Quote</Link>
-            </Button>
-            <Button asChild variant="outline" className="border-[#FF7A00] text-[#FF7A00] hover:bg-[#FF7A00] hover:text-white">
-              <Link href="/contact">Contact Sales</Link>
-            </Button>
+    <main className="min-h-screen bg-[#f7f3eb] text-zinc-950">
+      <section className="bg-[#101f1c] px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-amber-300">Industry packaging</p>
+            <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-tight tracking-tight md:text-6xl">{industry.heroTitle}</h1>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-emerald-50/80">{industry.heroDescription}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/request-quote" className="inline-flex h-11 items-center rounded-lg bg-white px-5 text-sm font-semibold text-[#163c35] transition hover:bg-amber-100">
+                Request Quote
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+              <Link href="/contact" className="inline-flex h-11 items-center rounded-lg border border-white/35 bg-white/10 px-5 text-sm font-semibold text-white transition hover:bg-white hover:text-[#163c35]">
+                Contact Sales
+              </Link>
+            </div>
           </div>
-        </div>
 
-        <div className="overflow-hidden rounded-[2rem] bg-slate-50 shadow-sm">
-          <ProductImage src={industry.image} alt={industry.imageAlt} className="h-[420px] w-full object-cover" />
+          <div className="overflow-hidden rounded-[1.5rem] border border-white/15 bg-white/10 p-2 shadow-2xl">
+            <ProductImage src={industry.image} alt={industry.imageAlt} className="h-[440px] w-full rounded-[1.1rem] object-cover" />
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid gap-5 md:grid-cols-3">
           {industry.highlights.map((highlight) => (
-            <Card key={highlight} className="border-slate-200 bg-white shadow-sm">
-              <CardContent className="p-6 text-sm font-medium text-slate-700">{highlight}</CardContent>
-            </Card>
+            <div key={highlight} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+              <Check className="h-5 w-5 text-amber-600" />
+              <p className="mt-4 text-sm font-semibold leading-6 text-zinc-800">{highlight}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-8 px-4 pb-16 sm:px-6 lg:grid-cols-[0.85fr_1fr] lg:px-8">
-        <Card className="border-slate-200 bg-slate-50 shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl text-[#003366]">Common packaging needs</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-3 sm:grid-cols-2">
+      <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-16 sm:px-6 lg:grid-cols-[0.85fr_1fr] lg:px-8">
+        <div className="rounded-[1.5rem] border border-zinc-200 bg-white p-6 shadow-sm">
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-600">Common packaging needs</p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {industry.products.map((product) => (
-              <div key={product} className="rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-700">
+              <span key={product} className="rounded-xl bg-[#f7f3eb] px-4 py-3 text-sm font-semibold text-zinc-800">
                 {product}
-              </div>
+              </span>
             ))}
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        <Card className="border-slate-200 bg-white shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl text-[#003366]">Relevant product categories</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-3 sm:grid-cols-2">
+        <div className="rounded-[1.5rem] border border-zinc-200 bg-white p-6 shadow-sm">
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-600">Relevant product categories</p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {categories.map((category) => (
-              <Link key={category.slug} href={`/products/${category.slug}`} className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium text-[#003366] transition hover:border-[#003366]/40 hover:bg-white">
+              <Link key={category.slug} href={`/products/${category.slug}`} className="group rounded-xl border border-zinc-200 bg-[#f7f3eb] px-4 py-3 text-sm font-semibold text-zinc-800 transition hover:border-zinc-400 hover:bg-white">
                 {category.name}
+                <ArrowRight className="ml-2 inline h-4 w-4 text-amber-600 transition group-hover:translate-x-1" />
               </Link>
             ))}
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </section>
     </main>
   );

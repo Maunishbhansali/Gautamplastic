@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowRight, Check, MapPin, MessageCircleMore, PhoneCall } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ProductImage } from "@/components/product-image";
 import { getCategoryHeroBySlug } from "@/lib/business";
 import { getContentSnapshot } from "@/lib/cms";
@@ -65,67 +65,95 @@ export default async function CategoryPage({ params }: { params: CategoryPagePar
   };
 
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <main className="min-h-screen bg-[#f7f3eb] text-zinc-950">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_0.8fr] lg:items-center">
+      <section className="bg-[#101f1c] px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#FF7A00]">{hero.eyebrow}</p>
-            <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-[#003366] md:text-5xl">{hero.title}</h1>
-            <p className="mt-4 max-w-3xl text-lg text-slate-600">{hero.description}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-amber-300">{hero.eyebrow}</p>
+            <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-tight tracking-tight md:text-6xl">{hero.title}</h1>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-emerald-50/80">{hero.description}</p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Button className="bg-[#003366] text-white hover:bg-[#00254f]">{hero.ctaLabel}</Button>
-              <Button variant="outline" className="border-[#FF7A00] text-[#FF7A00] hover:bg-[#FF7A00] hover:text-white">WhatsApp Us</Button>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button asChild className="h-12 rounded-full bg-amber-300 px-6 font-semibold text-zinc-950 hover:bg-amber-200">
+                <Link href="/request-quote">
+                  {hero.ctaLabel}
+                  <span className="ml-3 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-950 text-white">
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="h-12 rounded-full border-white/35 bg-white/10 px-6 font-semibold text-white backdrop-blur hover:bg-white hover:text-[#163c35]">
+                <a href={`https://wa.me/91${snapshot.business.whatsapp}`} target="_blank" rel="noreferrer">
+                  WhatsApp Us
+                  <MessageCircleMore className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] bg-slate-50 shadow-sm">
-            <ProductImage src={hero.image} alt={hero.imageAlt} className="h-[420px] w-full object-cover" />
+          <div className="overflow-hidden rounded-[1.5rem] border border-white/15 bg-white/10 p-2 shadow-2xl">
+            <ProductImage src={hero.image} alt={hero.imageAlt} className="h-[440px] w-full rounded-[1.1rem] object-cover" />
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {products.map((product) => (
-            <Card key={product.slug} className="overflow-hidden border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-[#003366]/30 hover:shadow-md">
-              <ProductImage src={product.image} alt={product.imageAlt ?? product.name} className="h-52 w-full object-cover" />
-              <CardHeader>
-                <CardTitle className="text-xl text-[#003366]">{product.name}</CardTitle>
-                <CardDescription className="text-slate-600">{product.shortDescription}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3 p-6">
-                <p className="text-sm text-slate-600"><strong>Material:</strong> {product.material}</p>
-                <p className="text-sm text-slate-600"><strong>Capacities:</strong> {product.capacities.length ? product.capacities.join(", ") : "Multiple"}</p>
-                <div className="flex flex-wrap items-center gap-3">
-                  <Button asChild variant="outline" className="border-[#003366] text-[#003366] hover:bg-[#003366] hover:text-white">
-                    <Link href={`/products/${category.slug}/${product.slug}`}>View product</Link>
-                  </Button>
-                  <span className="rounded-full bg-[#FF7A00]/10 px-3 py-1 text-xs font-semibold text-[#FF7A00]">{product.material}</span>
+            <Link
+              key={product.slug}
+              href={`/products/${category.slug}/${product.slug}`}
+              className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-zinc-400 hover:shadow-2xl"
+            >
+              <div className="h-56 overflow-hidden bg-zinc-100">
+                <ProductImage src={product.image} alt={product.imageAlt ?? product.name} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05]" />
+              </div>
+              <div className="p-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h2 className="text-xl font-semibold text-zinc-950">{product.name}</h2>
+                    <p className="mt-2 text-sm leading-6 text-zinc-600">{product.shortDescription}</p>
+                  </div>
+                  <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-amber-600 transition group-hover:translate-x-1" />
                 </div>
-              </CardContent>
-            </Card>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">{product.material}</span>
+                  <span className="rounded-full bg-[#f7f3eb] px-3 py-1 text-xs font-semibold text-zinc-700">
+                    {product.capacities.length ? product.capacities[0] : "Multiple sizes"}
+                  </span>
+                </div>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <Card className="border-slate-200 bg-white shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl text-[#003366]">Business details</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-4 text-sm text-slate-700 md:grid-cols-2">
-            <p><strong>Business:</strong> {snapshot.business.fullName}</p>
-            <p><strong>Experience:</strong> {snapshot.business.established}</p>
-            <p><strong>Location:</strong> {snapshot.business.location}</p>
-            <p><strong>Phone:</strong> {snapshot.business.phones.join(" / ")}</p>
-          </CardContent>
-        </Card>
+        <div className="grid gap-4 rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm md:p-6 lg:grid-cols-[1.15fr_repeat(3,1fr)]">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-600">Supply snapshot</p>
+            <h2 className="mt-3 text-2xl font-semibold text-zinc-950">Procurement-ready support</h2>
+          </div>
+          {[
+            { label: "Experience", value: snapshot.business.established, icon: Check },
+            { label: "Location", value: `${snapshot.business.city}, ${snapshot.business.state}`, icon: MapPin },
+            { label: "Phone", value: snapshot.business.phones.join(" / "), icon: PhoneCall },
+          ].map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.label} className="rounded-2xl bg-[#f7f3eb] p-4">
+                <Icon className="h-5 w-5 text-amber-600" />
+                <p className="mt-4 text-xs font-bold uppercase tracking-[0.16em] text-zinc-500">{item.label}</p>
+                <p className="mt-2 text-sm font-semibold leading-6 text-zinc-800">{item.value}</p>
+              </div>
+            );
+          })}
+        </div>
       </section>
     </main>
   );

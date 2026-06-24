@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { Send } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ContactFormState {
   name: string;
@@ -11,6 +12,9 @@ interface ContactFormState {
   company: string;
   message: string;
 }
+
+const inputClass =
+  "mt-2 w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-950 shadow-sm transition focus:border-amber-500 focus:outline-none focus:ring-4 focus:ring-amber-500/15";
 
 export function ContactForm() {
   const [form, setForm] = useState<ContactFormState>({ name: "", email: "", phone: "", company: "", message: "" });
@@ -40,79 +44,81 @@ export function ContactForm() {
   }
 
   return (
-    <Card className="border-slate-200 bg-slate-50 shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-2xl text-[#003366]">Get in touch</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4 text-slate-700">
-        {status ? (
-          <div className={`rounded-2xl border p-4 ${status.type === "success" ? "border-emerald-300 bg-emerald-50 text-emerald-700" : "border-rose-300 bg-rose-50 text-rose-700"}`}>
-            {status.message}
-          </div>
-        ) : null}
+    <div className="rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm md:p-7">
+      <div>
+        <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-600">Enquiry form</p>
+        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950">Tell us what you need packed.</h2>
+        <p className="mt-3 text-sm leading-6 text-zinc-600">
+          Add product type, capacity, quantity and any closure preference for a faster response.
+        </p>
+      </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid gap-4 sm:grid-cols-2">
-            <label className="block">
-              <span className="text-sm font-medium text-slate-700">Name*</span>
-              <input
-                value={form.name}
-                onChange={(event) => setForm({ ...form, name: event.target.value })}
-                className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm focus:border-[#003366] focus:outline-none"
-                type="text"
-                required
-              />
-            </label>
-            <label className="block">
-              <span className="text-sm font-medium text-slate-700">Email*</span>
-              <input
-                value={form.email}
-                onChange={(event) => setForm({ ...form, email: event.target.value })}
-                className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm focus:border-[#003366] focus:outline-none"
-                type="email"
-                required
-              />
-            </label>
-          </div>
+      {status ? (
+        <div className={`mt-5 rounded-xl border p-4 text-sm ${status.type === "success" ? "border-emerald-300 bg-emerald-50 text-emerald-700" : "border-rose-300 bg-rose-50 text-rose-700"}`}>
+          {status.message}
+        </div>
+      ) : null}
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <label className="block">
-              <span className="text-sm font-medium text-slate-700">Phone</span>
-              <input
-                value={form.phone}
-                onChange={(event) => setForm({ ...form, phone: event.target.value })}
-                className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm focus:border-[#003366] focus:outline-none"
-                type="tel"
-              />
-            </label>
-            <label className="block">
-              <span className="text-sm font-medium text-slate-700">Company</span>
-              <input
-                value={form.company}
-                onChange={(event) => setForm({ ...form, company: event.target.value })}
-                className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm focus:border-[#003366] focus:outline-none"
-                type="text"
-              />
-            </label>
-          </div>
-
+      <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+        <div className="grid gap-4 sm:grid-cols-2">
           <label className="block">
-            <span className="text-sm font-medium text-slate-700">Message*</span>
-            <textarea
-              value={form.message}
-              onChange={(event) => setForm({ ...form, message: event.target.value })}
-              className="mt-2 h-36 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm focus:border-[#003366] focus:outline-none"
+            <span className="text-sm font-semibold text-zinc-700">Name*</span>
+            <input
+              value={form.name}
+              onChange={(event) => setForm({ ...form, name: event.target.value })}
+              className={inputClass}
+              type="text"
               required
             />
           </label>
+          <label className="block">
+            <span className="text-sm font-semibold text-zinc-700">Email*</span>
+            <input
+              value={form.email}
+              onChange={(event) => setForm({ ...form, email: event.target.value })}
+              className={inputClass}
+              type="email"
+              required
+            />
+          </label>
+        </div>
 
-          <div className="flex flex-wrap gap-3">
-            <Button className="bg-[#003366] text-white hover:bg-[#00254f]" type="submit" disabled={submitting}>
-              {submitting ? "Sending..." : "Send enquiry"}
-            </Button>
-          </div>
-        </form>
-      </CardContent>
-    </Card>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label className="block">
+            <span className="text-sm font-semibold text-zinc-700">Phone</span>
+            <input
+              value={form.phone}
+              onChange={(event) => setForm({ ...form, phone: event.target.value })}
+              className={inputClass}
+              type="tel"
+            />
+          </label>
+          <label className="block">
+            <span className="text-sm font-semibold text-zinc-700">Company</span>
+            <input
+              value={form.company}
+              onChange={(event) => setForm({ ...form, company: event.target.value })}
+              className={inputClass}
+              type="text"
+            />
+          </label>
+        </div>
+
+        <label className="block">
+          <span className="text-sm font-semibold text-zinc-700">Message*</span>
+          <textarea
+            value={form.message}
+            onChange={(event) => setForm({ ...form, message: event.target.value })}
+            className={`${inputClass} h-36 resize-none`}
+            required
+          />
+        </label>
+
+        <Button className="h-11 bg-zinc-950 px-5 text-white hover:bg-zinc-800" type="submit" disabled={submitting}>
+          {submitting ? "Sending..." : "Send enquiry"}
+          <Send className="ml-2 h-4 w-4" />
+        </Button>
+      </form>
+    </div>
   );
 }

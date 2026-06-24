@@ -1,4 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { MapPin, MessageCircleMore, PhoneCall } from "lucide-react";
+
 import { business } from "@/lib/business";
 import { QuoteForm } from "@/app/request-quote/QuoteForm";
 
@@ -9,36 +10,36 @@ export const metadata = {
 
 export default function RequestQuotePage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#FF7A00]">Request quote</p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-[#003366] md:text-5xl">Request a custom packaging quote</h1>
-        <p className="mt-4 max-w-3xl text-lg text-slate-600">Share your product, capacity and quantity details so Gautam Plastic can prepare a practical supply recommendation.</p>
+    <main className="min-h-screen bg-[#f7f3eb] text-zinc-950">
+      <section className="bg-[#101f1c] px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-amber-300">Request quote</p>
+          <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-tight tracking-tight md:text-6xl">
+            Request a custom packaging quote.
+          </h1>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-emerald-50/80">
+            Share your product, capacity and quantity details so Gautam Plastic can prepare a practical supply recommendation.
+          </p>
+        </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-16 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8">
-        <Card className="border-slate-200 bg-white shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl text-[#003366]">Quote request details</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4 text-slate-700">
-            <p>Fill in the details below and we will contact you with pricing, availability and logistics support.</p>
-            <dl className="grid gap-4 text-sm sm:grid-cols-2">
-              <div>
-                <dt className="font-semibold">Phone</dt>
-                <dd>{business.phones.join(" / ")}</dd>
+      <section className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+        <div className="space-y-4">
+          {[
+            { label: "Phone", value: business.phones.join(" / "), icon: PhoneCall },
+            { label: "WhatsApp", value: business.whatsapp, icon: MessageCircleMore },
+            { label: "Location", value: business.location, icon: MapPin },
+          ].map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.label} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+                <Icon className="h-5 w-5 text-amber-600" />
+                <p className="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-zinc-500">{item.label}</p>
+                <p className="mt-2 text-sm leading-6 text-zinc-700">{item.value}</p>
               </div>
-              <div>
-                <dt className="font-semibold">WhatsApp</dt>
-                <dd>{business.whatsapp}</dd>
-              </div>
-              <div>
-                <dt className="font-semibold">Location</dt>
-                <dd>{business.location}</dd>
-              </div>
-            </dl>
-          </CardContent>
-        </Card>
+            );
+          })}
+        </div>
 
         <QuoteForm />
       </section>
